@@ -4,4 +4,8 @@
   <%= form.text_field :body, placeholder: "Post Here!", required: true %>
 <% end %>
 
+<%= post_form_for(PicPost) do |form| %>
+  <%= form.file_field :image, required: true %>
+<% end %>
+
 <%= render @posts %>

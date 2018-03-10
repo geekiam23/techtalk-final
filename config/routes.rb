@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :posts, only: [:show, :index]
 
   post "text_posts" => "posts#create", defaults: { content_type: TextPost}
+
+  post "pic_posts" => "posts#create", defaults: { content_type: PicPost}
 end
