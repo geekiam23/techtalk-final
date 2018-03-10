@@ -3,5 +3,5 @@ class Post < ApplicationRecord
   validates :user, presence: true
   belongs_to :content, polymorphic: true
 
-  # delegate :username, to: :user
+  delegate :username, to: :user
 end
