@@ -21,6 +21,7 @@ gem 'paperclip'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'faker'
+gem 'foreman'
 
 group :development, :test do
   gem 'byebug', platform: :mri

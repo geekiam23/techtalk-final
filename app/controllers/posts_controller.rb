@@ -5,12 +5,22 @@ class PostsController < ApplicationController
   end
 
   def index
-    if params[:tag]
-        @posts = Post.tagged_with(params[:tag])
-    else
-        @posts = Post.all
-    end
+    posts = Post.all
+    render json: posts
   end
+
+  def show
+    post = Post.find(params[:id])
+    render json: post.as_json
+  end
+
+  # def index
+  #   if params[:tag]
+  #       @posts = Post.tagged_with(params[:tag])
+  #   else
+  #       @posts = Post.all
+  #   end
+  # end
 
   def show_text
     @post = TextPost.find(params[:id])
@@ -32,16 +42,16 @@ class PostsController < ApplicationController
     @post = MeetingPost.find(params[:id])
   end
 
-  def show
-    # case post._type
-    # when "text_post" then
-    #   @post = TextPost.find(params[:id])
-    # when "pic_post" then
-    #   @post = PicPost.find(params[:id])
-    # end
-
-    @post = Post.find(params[:id])
-  end
+  # def show
+  #   # case post._type
+  #   # when "text_post" then
+  #   #   @post = TextPost.find(params[:id])
+  #   # when "pic_post" then
+  #   #   @post = PicPost.find(params[:id])
+  #   # end
+  #
+  #   @post = Post.find(params[:id])
+  # end
 
   def search
     @posts = Elasticsearch::Model.search(params[:q], [JobPost, MeetingPost, PicPost, ProjectPost, TextPost])
