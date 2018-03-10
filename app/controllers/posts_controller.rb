@@ -24,6 +24,10 @@ class PostsController < ApplicationController
     @post = ProjectPost.find(params[:id])
   end
 
+  def show_job
+    @post = JobPost.find(params[:id])
+  end
+
   def show
     # case post._type
     # when "text_post" then
@@ -36,7 +40,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Elasticsearch::Model.search(params[:q], [PicPost, ProjectPost, TextPost])
+    @posts = Elasticsearch::Model.search(params[:q], [JobPost, PicPost, ProjectPost, TextPost])
   end
 
   private

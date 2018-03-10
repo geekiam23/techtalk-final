@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/posts/show_pic'
   get '/posts/show_text'
   get '/posts/show_project'
+  get '/posts/show_job'
+
   get 'search', to: 'posts#search'
 
   devise_for :users
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
       delete "unlike" => "likes#destroy"
     end
   end
+
+  post "job_posts" => "posts#create", defaults: { content_type: JobPost}
 
   post "pic_posts" => "posts#create", defaults: { content_type: PicPost}
 

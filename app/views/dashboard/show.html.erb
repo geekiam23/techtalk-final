@@ -1,5 +1,13 @@
 <h1>Dashboards</h1>
 
+<%= post_form_for(JobPost) do |form| %>
+  <%= form.text_field :title, placeholder: "Title", required: true %>
+  <%= form.text_area :body, placeholder: "Description", required: true %>
+  <%= form.text_field :link, placeholder: "Link to Job Website", required: true %>
+  <%= form.number_field :salary, placeholder: "Salary" %>
+  <%= form.text_field :location, placeholder: "Location" %>
+<% end %>
+
 <%= post_form_for(PicPost) do |form| %>
   <%= form.file_field :image, required: true %>
 <% end %>
