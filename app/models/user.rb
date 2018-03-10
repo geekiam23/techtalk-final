@@ -25,4 +25,8 @@ class User < ApplicationRecord
       where(conditions.to_h).first
     end
   end
+
+  def to_param
+    username
+  end
 end
