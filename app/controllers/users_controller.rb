@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @posts = Elasticsearch::Model.search(params[:q], [PicPost, TextPost])
+    @posts = Elasticsearch::Model.search(params[:q], [Users])
   end
 
   private

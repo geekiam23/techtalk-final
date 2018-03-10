@@ -14,12 +14,6 @@ module PostsHelper
     end
   end
 
-  def avatar(user)
-    email_digest = Digest::MD5.hexdigest user.email
-    gravatar_url = "//www.gravatar.com/avatar/#{email_digest}"
-    image_tag gravatar_url
-  end
-
   def autolink(text)
     text.
       gsub(/@\w+/) { |mention| link_to mention, user_path(mention[1..-1])}.
