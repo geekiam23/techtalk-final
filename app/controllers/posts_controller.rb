@@ -6,7 +6,19 @@ class PostsController < ApplicationController
 
   def index
     posts = Post.all
+    # job_posts = JobPost.all
+    # meeting_posts = MeetingPost.all
+    # pic_posts = PicPost.all
+    # project_posts = ProjectPost.all
+    # text_posts = TextPost.all
+
     render json: posts
+    # render json: job_posts
+    # render json: meeting_posts
+    # render json: pic_posts
+    # render json: project_posts
+    # render json: text_posts
+
   end
 
   def show
