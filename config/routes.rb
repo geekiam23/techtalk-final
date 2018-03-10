@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'likes/create'
   get '/posts/show_pic'
   get '/posts/show_text'
+  get '/posts/show_project'
   get 'search', to: 'posts#search'
 
   devise_for :users
@@ -26,7 +27,9 @@ Rails.application.routes.draw do
     end
   end
 
-  post "text_posts" => "posts#create", defaults: { content_type: TextPost}
-
   post "pic_posts" => "posts#create", defaults: { content_type: PicPost}
+
+  post "project_posts" => "posts#create", defaults: { content_type: ProjectPost}
+
+  post "text_posts" => "posts#create", defaults: { content_type: TextPost}
 end

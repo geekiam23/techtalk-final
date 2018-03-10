@@ -10,6 +10,9 @@
         <% if post._type == "text_post" %>
           <%= link_to post.body, controller: "posts", action: "show_text", id: post.id%>
         <% end %>
+        <% if post._type == "project_post" %>
+          <%= link_to post.body, controller: "posts", action: "show_project", id: post.id%>
+        <% end %>
       </h3>
     </li>
   <% end %>
