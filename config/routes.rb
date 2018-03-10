@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/posts/show_text'
   get '/posts/show_project'
   get '/posts/show_job'
+  get '/posts/show_meeting'
 
   get 'search', to: 'posts#search'
 
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
   end
 
   post "job_posts" => "posts#create", defaults: { content_type: JobPost}
+
+  post "meeting_posts" => "posts#create", defaults: { content_type: MeetingPost}
 
   post "pic_posts" => "posts#create", defaults: { content_type: PicPost}
 

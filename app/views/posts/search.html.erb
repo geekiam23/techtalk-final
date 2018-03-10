@@ -16,6 +16,9 @@
         <% if post._type == "job_post" %>
           <%= link_to post.body, controller: "posts", action: "show_job", id: post.id%>
         <% end %>
+        <% if post._type == "meeting_post" %>
+          <%= link_to post.body, controller: "posts", action: "show_meeting", id: post.id%>
+        <% end %>
       </h3>
     </li>
   <% end %>

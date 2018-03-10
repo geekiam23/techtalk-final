@@ -8,6 +8,13 @@
   <%= form.text_field :location, placeholder: "Location" %>
 <% end %>
 
+<%= post_form_for(MeetingPost) do |form| %>
+  <%= form.text_field :title, placeholder: "Title", required: true %>
+  <%= form.text_area :body, placeholder: "Description", required: true %>
+  <%= form.date_field :date %>
+  <%= form.time_field :time %>
+<% end %>
+
 <%= post_form_for(PicPost) do |form| %>
   <%= form.file_field :image, required: true %>
 <% end %>
