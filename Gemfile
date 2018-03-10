@@ -18,6 +18,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'paperclip'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 
 group :development, :test do

@@ -12,8 +12,27 @@ class PostsController < ApplicationController
     end
   end
 
+  def show_text
+    @post = TextPost.find(params[:id])
+  end
+
+  def show_pic
+    @post = PicPost.find(params[:id])
+  end
+
   def show
+    # case post._type
+    # when "text_post" then
+    #   @post = TextPost.find(params[:id])
+    # when "pic_post" then
+    #   @post = PicPost.find(params[:id])
+    # end
+
     @post = Post.find(params[:id])
+  end
+
+  def search
+    @posts = Elasticsearch::Model.search(params[:q], [PicPost, TextPost])
   end
 
   private

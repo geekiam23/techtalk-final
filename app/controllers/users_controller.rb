@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     @timeline = Timeline.new([@user])
   end
 
+  def search
+    @posts = Elasticsearch::Model.search(params[:q], [PicPost, TextPost])
+  end
+
   private
 
   def user_params

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'posts/create'
 
   get 'likes/create'
+  get '/posts/show_pic'
+  get '/posts/show_text'
+  get 'search', to: 'posts#search'
 
   devise_for :users
   root to: "dashboard#show"
