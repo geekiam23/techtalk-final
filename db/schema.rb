@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310182055) do
+ActiveRecord::Schema.define(version: 20180312142346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,13 +25,14 @@ ActiveRecord::Schema.define(version: 20180310182055) do
   end
 
   create_table "job_posts", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.text     "body",       null: false
-    t.string   "link",       null: false
+    t.string   "title",                            null: false
+    t.text     "body",                             null: false
+    t.string   "link",                             null: false
     t.integer  "salary"
-    t.string   "location",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "location",                         null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "content_type", default: "JobPost"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -45,21 +46,23 @@ ActiveRecord::Schema.define(version: 20180310182055) do
   end
 
   create_table "meeting_posts", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.text     "body",       null: false
-    t.date     "date",       null: false
-    t.time     "time",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title",                                null: false
+    t.text     "body",                                 null: false
+    t.date     "date",                                 null: false
+    t.time     "time",                                 null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "content_type", default: "MeetingPost"
   end
 
   create_table "pic_posts", force: :cascade do |t|
-    t.string   "image_file_name",    null: false
-    t.string   "image_content_type", null: false
-    t.integer  "image_file_size",    null: false
-    t.datetime "image_updated_at",   null: false
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "image_file_name",                        null: false
+    t.string   "image_content_type",                     null: false
+    t.integer  "image_file_size",                        null: false
+    t.datetime "image_updated_at",                       null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "content_type",       default: "PicPost"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -73,18 +76,20 @@ ActiveRecord::Schema.define(version: 20180310182055) do
   end
 
   create_table "project_posts", force: :cascade do |t|
-    t.string   "title",      null: false
-    t.text     "body",       null: false
+    t.string   "title",                                null: false
+    t.text     "body",                                 null: false
     t.string   "link"
     t.string   "repo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "content_type", default: "ProjectPost"
   end
 
   create_table "text_posts", force: :cascade do |t|
-    t.string   "body",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "body",                              null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "content_type", default: "TextPost"
   end
 
   create_table "timelines", force: :cascade do |t|
