@@ -1,52 +1,55 @@
 import React from 'react';
-import { Button, FormGroup, Label, Input, Row, Col } from 'reactstrap';
+// import { Button } from 'reactstrap';
 
 export default class MeetingPost extends React.Component{
-  constructor(props){
-    super(props);
-
-    this.state = {
-      body: this.props.body
-    }
-    this.handleBodyChange = this.handleBodyChange.bind(this);
-  }
-
-  handleBodyChange(e) {
-    this.setState({ body: e.target.value });
-  }
   render (){
+    let indLinks = {
+      position: "relative",
+      display: "inline",
+      width: "50%",
+      float: "both"
+    }
+
+    let divContainerLinks = {
+      bottom: "0",
+      position: "relative"
+    }
+
+    let textBodyAlignment = {
+       'textAlign': "center"
+    }
+
     return (
-      <div>
-        <Row>
-            <Col>
-              <Input
-                type="text"
-                name="post[body]"
-                value={this.state.body}
-                onChange={this.handleBodyChange} placeholder="Title!"
-              />
-            </Col>
-            <Col>
-              <Input type="textarea" name="text" id="exampleText" placeholder="Description"/>
-            </Col>
-            <Col>
-              <Input type="date" name="date" id="exampleDate" placeholder="date" />
-            </Col>
-            <Col>
-              <Input type="time" name="time" id="exampleTime" placeholder="time placeholder" />
-            </Col>
-            <Col>
-              <Input
-                type="text"
-                name="post[body]"
-                value={this.state.body}
-                onChange={this.handleBodyChange} placeholder="Tags!"
-              />
-            </Col>
-            <Col>
-              <Button color="danger">Post!</Button>
-            </Col>
-          </Row>
+      <div className="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+        <div className="mdl-card__title" style={textBodyAlignment}>
+           <h4 className="mdl-card__title-text">{this.props.title}</h4>
+        </div>
+        <div className="mdl-card__supporting-text">
+          <span className="mdl-typography--font-light mdl-typography--subhead">{this.props.body}</span>
+        </div>
+        <div className="mdl-card__supporting-text">
+          <span className="mdl-typography--font-light mdl-typography--subhead">{this.props.date}</span>
+        </div>
+        <div className="mdl-card__supporting-text">
+          <span className="mdl-typography--font-light mdl-typography--subhead">{this.props.time}</span>
+        </div>
+        <div className="mdl-card__supporting-text">
+          <p className="mdl-typography--font-light mdl-typography--subhead">{this.props.created_at}</p>
+        </div>
+        <div style={divContainerLinks}>
+          <div className="mdl-card__actions" style={indLinks}>
+             <a className="techtalk-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+               switch
+               <i className="material-icons">chevron_right</i>
+             </a>
+          </div>
+          <div className="mdl-card__actions" style={indLinks}>
+             <a className="techtalk-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+               Reply
+               <i className="material-icons">chevron_right</i>
+             </a>
+          </div>
+        </div>
       </div>
     )
   }
