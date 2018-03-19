@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    posts = Post.all
+    posts = JobPost.all + MeetingPost.all + PicPost.all + ProjectPost.all + TextPost.all
 
     render json: posts
 
