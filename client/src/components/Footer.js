@@ -1,64 +1,33 @@
-import _ from 'lodash'
 import React, { Component } from 'react'
-import { Container, Divider, Grid, Header, List, Segment
-} from 'semantic-ui-react'
+
 
 export default class Footer extends Component {
-
   render() {
-
     return (
-      <div>
-        <Segment
-          inverted
-          style={{ margin: '5em 0em 0em', padding: '5em 0em', position:  'fixed', bottom: "0", left: '0', right: '0' }}
-          vertical
-        >
-          <Container textAlign='center'>
-            <Grid columns={4} divided stackable inverted>
-              <Grid.Row>
-                <Grid.Column>
-                  <Header inverted as='h4' content='Group 1' />
-                  <List link inverted>
-                    <List.Item as='a'>Link One</List.Item>
-                    <List.Item as='a'>Link Two</List.Item>
-                    <List.Item as='a'>Link Three</List.Item>
-                    <List.Item as='a'>Link Four</List.Item>
-                  </List>
-                </Grid.Column>
-                <Grid.Column>
-                  <Header inverted as='h4' content='Group 2' />
-                  <List link inverted>
-                    <List.Item as='a'>Link One</List.Item>
-                    <List.Item as='a'>Link Two</List.Item>
-                    <List.Item as='a'>Link Three</List.Item>
-                    <List.Item as='a'>Link Four</List.Item>
-                  </List>
-                </Grid.Column>
-                <Grid.Column>
-                  <Header inverted as='h4' content='Group 3' />
-                  <List link inverted>
-                    <List.Item as='a'>Link One</List.Item>
-                    <List.Item as='a'>Link Two</List.Item>
-                    <List.Item as='a'>Link Three</List.Item>
-                    <List.Item as='a'>Link Four</List.Item>
-                  </List>
-                </Grid.Column>
-                <Grid.Column>
-                  <Header inverted as='h4' content='Footer Header' />
-                  <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-            <Divider inverted section />
-            <List horizontal inverted divided link>
-              <List.Item as='a' href='#'>Site Map</List.Item>
-              <List.Item as='a' href='#'>Contact Us</List.Item>
-              <List.Item as='a' href='#'>Terms and Conditions</List.Item>
-              <List.Item as='a' href='#'>Privacy Policy</List.Item>
-            </List>
-          </Container>
-        </Segment>
+      <div id="techtalk-footer">
+        <footer className="techtalk-footer mdl-mega-footer">
+          <div className="mdl-mega-footer--top-section">
+            <div className="mdl-mega-footer--left-section">
+              <button className="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button className="mdl-mega-footer--social-btn"></button>
+              &nbsp;
+              <button className="mdl-mega-footer--social-btn"></button>
+            </div>
+            <div className="mdl-mega-footer--right-section">
+              <a className="mdl-typography--font-light" href="#top">
+                Back to Top
+                <i className="material-icons">expand_less</i>
+              </a>
+            </div>
+          </div>
+
+          <div className="mdl-mega-footer--bottom-section">
+            <a className="techtalk-link mdl-typography--font-light" href="">Blog</a>
+            <a className="techtalk-link mdl-typography--font-light" href="">Privacy Policy</a>
+          </div>
+
+        </footer>
       </div>
     )
   }
