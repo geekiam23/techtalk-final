@@ -1,43 +1,37 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+// import { Button } from 'reactstrap';
 
-export default class PicPost extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state ={
-      file:null
+export default class PicPost extends React.Component{
+  render (){
+    let indLinks = {
+      position: "relative",
+      display: "inline",
+      width: "50%",
+      float: "both"
     }
-    this.onFormSubmit = this.onFormSubmit.bind(this)
-    this.onChange = this.onChange.bind(this)
-    this.fileUpload = this.fileUpload.bind(this)
-  }
-  onFormSubmit(e){
-    e.preventDefault() // Stop form submit
-    this.fileUpload(this.state.file).then((response)=>{
-      console.log(response.data);
-    })
-  }
-  onChange(e) {
-    this.setState({file:e.target.files[0]})
-  }
-  fileUpload(file){
-    const url = 'http://example.com/file-upload';
-    const formData = new FormData();
-    formData.append('file',file)
-    const config = {
-        headers: {
-            'content-type': 'multipart/form-data'
-        }
-    }
-    return  post(url, formData,config)
-  }
 
-  render() {
+    let divContainerLinks = {
+      bottom: "0",
+      position: "relative"
+    }
+
     return (
-      <form onSubmit={this.onFormSubmit}>
-        <input type="file" onChange={this.onChange} />
-        <Button color="danger">Post!</Button>
-      </form>
-   )
+      <div className="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+        <div className="mdl-card__media">
+          <img src='../images/andy.png' alt=""/>
+        </div>
+        <div className="mdl-card__supporting-text">
+          <span className="mdl-typography--font-light mdl-typography--subhead">{this.props.image_file_name}</span>
+        </div>
+        <div style={divContainerLinks}>
+          <div className="mdl-card__actions" style={indLinks}>
+             <a className="techtalk-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="">
+               Reply
+               <i className="material-icons">chevron_right</i>
+             </a>
+          </div>
+        </div>
+      </div>
+    )
   }
 }
