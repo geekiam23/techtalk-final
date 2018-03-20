@@ -1,13 +1,15 @@
 import React from 'react';
-// import { Button } from 'reactstrap';
+import UserInfo from './UserInfo';
+import Divider from 'material-ui/Divider';
 
-export default class MeetingPost extends React.Component{
+
+export default class JobPost extends React.Component{
   render (){
     let indLinks = {
       position: "relative",
-      display: "inline",
+      display: "inline-block",
       width: "50%",
-      float: "both"
+      textAlign: "center"
     }
 
     let divContainerLinks = {
@@ -20,12 +22,22 @@ export default class MeetingPost extends React.Component{
     }
 
     let cardMargin = {
-      // margin: "30px",
-      // width: "30%"
+      margin: "40px auto"
+    }
+
+    let userInfoDiv = {
+      width: "50%"
     }
 
     return (
-      <div className="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp" style={cardMargin}>
+      <div className="mdl-cell mdl-cell--7-col mdl-cell--7-col-tablet mdl-cell--7-col-phone mdl-card mdl-shadow--3dp" style={cardMargin}>
+        <div className="mdl-card__title" style={textBodyAlignment}>
+           <UserInfo style={userInfoDiv}/>
+           <div className="mdl-card__supporting-text" style={userInfoDiv}>
+             <p className="mdl-typography--font-light mdl-typography--subhead">{this.props.created_at}</p>
+           </div>
+        </div>
+        <Divider />
         <div className="mdl-card__title" style={textBodyAlignment}>
            <h4 className="mdl-card__title-text">{this.props.title}</h4>
         </div>
@@ -37,9 +49,6 @@ export default class MeetingPost extends React.Component{
         </div>
         <div className="mdl-card__supporting-text">
           <span className="mdl-typography--font-light mdl-typography--subhead">{this.props.salary}</span>
-        </div>
-        <div className="mdl-card__supporting-text">
-          <p className="mdl-typography--font-light mdl-typography--subhead">{this.props.created_at}</p>
         </div>
         <div style={divContainerLinks}>
           <div className="mdl-card__actions" style={indLinks}>

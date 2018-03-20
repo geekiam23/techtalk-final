@@ -1,13 +1,14 @@
 import React from 'react';
-// import { Button } from 'reactstrap';
+import pup from '../images/pup.jpg';
 
 export default class PicPost extends React.Component{
   render (){
     let indLinks = {
       position: "relative",
-      display: "inline",
+      display: "inline-block",
       width: "50%",
-      float: "both"
+      float: "both",
+      textAlign: "center"
     }
 
     let divContainerLinks = {
@@ -15,10 +16,14 @@ export default class PicPost extends React.Component{
       position: "relative"
     }
 
+    let cardMargin = {
+      margin: "40px auto"
+    }
+
     return (
-      <div className="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--3dp">
+      <div className="mdl-cell mdl-cell--7-col mdl-cell--7-col-tablet mdl-cell--7-col-phone mdl-card mdl-shadow--3dp" style={cardMargin}>
         <div className="mdl-card__media">
-          <img src='../images/andy.png' alt=""/>
+          <img src={pup} alt=""/>
         </div>
         <div className="mdl-card__supporting-text">
           <span className="mdl-typography--font-light mdl-typography--subhead">{this.props.image_file_name}</span>
