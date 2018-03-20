@@ -1,33 +1,49 @@
 import React, { Component } from 'react'
-import { Button, Dropdown, Menu } from 'semantic-ui-react'
+import Drawer from 'material-ui/Drawer';
+import AppBar from 'material-ui/AppBar';
+import RaisedButton from 'material-ui/RaisedButton';
+import MenuItem from 'material-ui/MenuItem';
 
 export default class MenuBar extends Component {
-  state = { activeItem: 'home' }
+    constructor(props) {
+      super(props);
+      this.state = {
+        open: false,
+      };
+    }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    handleToggle = () => this.setState({open: !this.state.open});
 
   render() {
-    const { activeItem } = this.state
-
     return (
-      <Menu size='small'>
-        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-        <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
+      <div className="techtalk-header mdl-layout__header mdl-layout__header--waterfall">
+        <div className="mdl-layout__header-row">
+          <div className="techtalk-header-spacer mdl-layout-spacer"></div>
+          <div className="techtalk-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+            <label className="mdl-button mdl-js-button mdl-button--icon">
+              <i className="material-icons">search</i>
+            </label>
+            <div className="mdl-textfield__expandable-holder">
+              <input className="mdl-textfield__input" type="text" id="search-field"/>
+            </div>
+          </div>
 
-        <Menu.Menu position='right'>
-          <Dropdown item text='Language'>
-            <Dropdown.Menu>
-              <Dropdown.Item>English</Dropdown.Item>
-              <Dropdown.Item>Russian</Dropdown.Item>
-              <Dropdown.Item>Spanish</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-
-          <Menu.Item>
-            <Button primary>Sign Up</Button>
-          </Menu.Item>
-        </Menu.Menu>
-      </Menu>
+          <button className="techtalk-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button" onClick={this.handleToggle}>
+            <i className="material-icons">more_vert</i>
+          </button>
+          <Drawer
+            docked={false}
+            width={200}
+            openSecondary={true}
+            open={this.state.open}
+            onRequestChange={(open) => this.setState({open})}
+          >
+            <AppBar title="TechTalk" showMenuIconButton={false}/>
+              <MenuItem onClick={this.handleClose}>My Account</MenuItem>
+              <MenuItem onClick={this.handleClose}></MenuItem>
+          </Drawer>
+        </div>
+      </div>
     )
   }
 }
