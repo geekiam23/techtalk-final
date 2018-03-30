@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
-#
+
 
 require 'faker'
 
@@ -14,20 +14,29 @@ require 'faker'
 admin =
 1.times do
  user = User.create!(
+   name: "Admin User",
    email: "admin@example.com",
+   uid: "admin@example.com",
    username: "admin",
    password: "password",
+   password_confirmation: "password",
    created_at: Faker::Date.between(2.years.ago, Date.today)
  )
 end
 
 # Create Users
 100.times do
+  email = Faker::Internet.unique.email
+  password = Faker::Lorem.characters(8)
+
  user = User.create!(
-   email: Faker::Internet.unique.email,
+   name: Faker::Name.name,
+   email: email,
+   uid: email,
    username: Faker::Internet.unique.user_name,
-   password: Faker::Lorem.characters(8),
-  created_at: Faker::Date.between(2.years.ago, Date.today)
+   password: password,
+   password_confirmation: password,
+   created_at: Faker::Date.between(2.years.ago, Date.today)
  )
 end
 

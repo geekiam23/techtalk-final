@@ -1,9 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  attr_accessor :login
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:login]
+
+  include DeviseTokenAuth::Concerns::User
 
   has_many :posts, dependent: :destroy
 
@@ -19,6 +20,9 @@ class User < ApplicationRecord
     dependent: :destroy
   has_many :followers, through: :follower_relationships
 
+  has_many :likes
+  has_many :liked_posts, through: :likes, source: :post
+
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
 
   validate :validate_username
@@ -29,17 +33,8 @@ class User < ApplicationRecord
     end
   end
 
-  def self.find_for_database_authentication(warden_conditions)
-    conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-      where(conditions.to_h).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-    elsif conditions.has_key?(:username) || conditions.has_key?(:email)
-      where(conditions.to_h).first
-    end
-  end
 
-  has_many :likes
-  has_many :liked_posts, through: :likes, source: :post
+
 
 
   def follow(user)
