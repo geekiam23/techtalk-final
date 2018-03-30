@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 
 export default class MenuBar extends Component {
@@ -39,8 +39,9 @@ export default class MenuBar extends Component {
             onRequestChange={(open) => this.setState({open})}
           >
             <AppBar title="TechTalk" showMenuIconButton={false}/>
-              <MenuItem onClick={this.handleClose}>My Account</MenuItem>
-              <MenuItem onClick={this.handleClose}></MenuItem>
+            <MenuItem onClick={this.handleClose} primaryText="home" containerElement={<Link to='/JumboTron'/>} />
+            <MenuItem onClick={this.handleClose} primaryText="Login" containerElement={<Link to='/Login'/>} />
+            <MenuItem onClick={this.handleClose} primaryText="Posts" containerElement={<Link to='/PostCardGroup'/>} />
           </Drawer>
         </div>
       </div>
