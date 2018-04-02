@@ -1,10 +1,11 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
-import InputTextPost from './InputTextPost';
-import InputMeetingPost from './InputMeetingPost';
-import InputPicPost from './InputPicPost';
-
+import InputTextPost from './inputs/InputTextPost';
+import InputMeetingPost from './inputs/InputMeetingPost';
+import InputPicPost from './inputs/InputPicPost';
+import InputProjectPost from './inputs/InputProjectPost';
+import InputJobPost from './inputs/InputJobPost';
 
 const styles = {
   headline: {
@@ -18,7 +19,7 @@ const styles = {
   },
 };
 
-export default class TabsExampleSwipeable extends React.Component {
+export default class ModalBody extends React.Component {
 
   constructor(props) {
     super(props);
@@ -45,7 +46,6 @@ export default class TabsExampleSwipeable extends React.Component {
           <Tab label="Meetings" value={2} />
           <Tab label="Projects" value={3} />
           <Tab label="Jobs" value={4} />
-
         </Tabs>
         <SwipeableViews
           index={this.state.slideIndex}
@@ -65,11 +65,11 @@ export default class TabsExampleSwipeable extends React.Component {
           </div>
           <div style={styles.slide}>
             <div style={styles.headline}></div>
-            <InputTextPost />
+            <InputProjectPost />
           </div>
           <div style={styles.slide}>
             <div style={styles.headline}></div>
-            <InputTextPost />
+            <InputJobPost />
           </div>
         </SwipeableViews>
       </div>

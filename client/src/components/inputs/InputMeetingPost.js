@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 
 
-export default class TextPost extends React.Component{
+export default class InputMeetingPost extends React.Component{
   constructor(props){
     super(props);
 

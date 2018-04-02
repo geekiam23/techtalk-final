@@ -4,7 +4,7 @@ import PostCardGroup from './components/PostCardGroup';
 import MenuBar from './components/MenuBar';
 import Footer from './components/Footer';
 import JumboTron from './components/JumboTron';
-import PostModal from './components/PostModal';
+import ModalContainer from './components/ModalContainer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Login from './Login';
 import $ from 'jquery';
@@ -82,7 +82,7 @@ class App extends Component {
                 <Route path="/Login" component={Login} />
                 <Route path="/PostCardGroup" component={PostCardGroup} />
               </main>
-              <PostModal/>
+              <ModalContainer/>
               <Footer/>
             </div>
           </div>

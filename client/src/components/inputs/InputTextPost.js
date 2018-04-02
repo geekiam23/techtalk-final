@@ -2,7 +2,7 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 
 
-export default class TextPost extends React.Component{
+export default class InputTextPost extends React.Component{
   constructor(props){
     super(props);
 

@@ -2,8 +2,8 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-import InputTextPost from './InputTextPost';
-import ModalButtons from './ModalButtons';
+import ModalBody from './ModalBody';
+
 
 
 /**
@@ -49,7 +49,7 @@ export default class DialogExampleSimple extends React.Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          <ModalButtons/>
+          <ModalBody/>
         </Dialog>
       </div>
     );
