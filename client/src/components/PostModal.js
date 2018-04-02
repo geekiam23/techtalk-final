@@ -1,64 +1,56 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import InputTextPost from './InputTextPost';
+import ModalButtons from './ModalButtons';
 
-export default class PostModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-      nestedModal: false,
-      closeAll: false
-    };
 
-    this.toggle = this.toggle.bind(this);
-    this.toggleNested = this.toggleNested.bind(this);
-    this.toggleAll = this.toggleAll.bind(this);
-  }
+/**
+ * Dialog with action buttons. The actions are passed in as an array of React objects,
+ * in this example [FlatButtons](/#/components/flat-button).
+ *
+ * You can also close this dialog by clicking outside the dialog, or with the 'Esc' key.
+ */
+export default class DialogExampleSimple extends React.Component {
+  state = {
+    open: false,
+  };
 
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
+  handleOpen = () => {
+    this.setState({open: true});
+  };
 
-  toggleNested() {
-    this.setState({
-      nestedModal: !this.state.nestedModal,
-      closeAll: false
-    });
-  }
-
-  toggleAll() {
-    this.setState({
-      nestedModal: !this.state.nestedModal,
-      closeAll: true
-    });
-  }
+  handleClose = () => {
+    this.setState({open: false});
+  };
 
   render() {
+    const actions = [
+      <FlatButton
+        label="Submit"
+        primary={true}
+        keyboardFocused={true}
+        onClick={this.handleClose}
+      />,
+    ];
+
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>New Post</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            <br />
-            <Button color="success" onClick={this.toggleNested}>Show Nested Model</Button>
-            <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
-              <ModalHeader>Nested Modal title</ModalHeader>
-              <ModalBody>Stuff and things</ModalBody>
-              <ModalFooter>
-                <Button color="primary" onClick={this.toggleNested}>Done</Button>{' '}
-                <Button color="secondary" onClick={this.toggleAll}>All Done</Button>
-              </ModalFooter>
-            </Modal>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-          </ModalFooter>
-        </Modal>
+        <RaisedButton
+          label="Post!"
+          onClick={this.handleOpen}
+          className="post-button mdl-button  mdl-button--raised mdl-color--accent mdl-color-text--accent-contrast"
+          secondary={true}
+        />
+        <Dialog
+          // actions={actions}
+          modal={false}
+          open={this.state.open}
+          onRequestClose={this.handleClose}
+        >
+          <ModalButtons/>
+        </Dialog>
       </div>
     );
   }
