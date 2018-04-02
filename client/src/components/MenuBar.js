@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 
 export default class MenuBar extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        open: false,
-      };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+    };
+  }
 
-    handleToggle = () => this.setState({open: !this.state.open});
+  handleToggle = () => this.setState({open: !this.state.open});
+
+  handleClose = () => this.setState({open: false});
 
   render() {
     return (
@@ -39,8 +41,9 @@ export default class MenuBar extends Component {
             onRequestChange={(open) => this.setState({open})}
           >
             <AppBar title="TechTalk" showMenuIconButton={false}/>
-              <MenuItem onClick={this.handleClose}>My Account</MenuItem>
-              <MenuItem onClick={this.handleClose}></MenuItem>
+            <MenuItem onClick={this.handleClose} primaryText="Home" containerElement={<Link to='/JumboTron'/>} />
+            <MenuItem onClick={this.handleClose} primaryText="Login" containerElement={<Link to='/Login'/>} />
+            <MenuItem onClick={this.handleClose} primaryText="Posts" containerElement={<Link to='/PostCardGroup'/>} />
           </Drawer>
         </div>
       </div>

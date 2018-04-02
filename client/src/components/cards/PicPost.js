@@ -1,7 +1,7 @@
 import React from 'react';
-// import { Button } from 'reactstrap';
+import pup from '../../images/pup.jpg';
 
-export default class TextPost extends React.Component{
+export default class PicPost extends React.Component{
   render (){
     let indLinks = {
       position: "relative",
@@ -16,21 +16,17 @@ export default class TextPost extends React.Component{
       position: "relative"
     }
 
-    let textBodyAlignment = {
-       'textAlign': "center"
-    }
-
     let cardMargin = {
       margin: "40px auto"
     }
 
     return (
       <div className="mdl-cell mdl-cell--7-col mdl-cell--7-col-tablet mdl-cell--7-col-phone mdl-card mdl-shadow--3dp" style={cardMargin}>
-        <div className="mdl-card__title" style={textBodyAlignment}>
-           <h4 className="mdl-card__title-text">{this.props.body}</h4>
+        <div className="mdl-card__media">
+          <img src={pup} alt=""/>
         </div>
         <div className="mdl-card__supporting-text">
-          <p className="mdl-typography--font-light mdl-typography--subhead">{this.props.created_at}</p>
+          <span className="mdl-typography--font-light mdl-typography--subhead">{this.props.image_file_name}</span>
         </div>
         <div style={divContainerLinks}>
           <div className="mdl-card__actions" style={indLinks}>

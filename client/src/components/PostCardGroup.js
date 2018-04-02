@@ -1,9 +1,9 @@
 import React from 'react';
-import TextPost from './TextPost'
-import MeetingPost from './MeetingPost'
-import JobPost from './JobPost'
-import ProjectPost from './ProjectPost'
-import PicPost from './PicPost'
+import TextPost from './cards/TextPost'
+import MeetingPost from './cards/MeetingPost'
+import JobPost from './cards/JobPost'
+import ProjectPost from './cards/ProjectPost'
+import PicPost from './cards/PicPost'
 import '../App.css'
 
 class PostCard extends React.Component{

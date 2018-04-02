@@ -7,11 +7,12 @@ a img{
   border: 0px;
 }
 
-#post-button {
+.post-button {
   position: fixed;
   display: block;
   right: 0;
   bottom: 0;
+  padding: 0;
   margin-right: 40px;
   margin-bottom: 40px;
   z-index: 900;
