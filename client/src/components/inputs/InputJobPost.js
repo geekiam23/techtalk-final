@@ -8,7 +8,11 @@ export default class InputJobPost extends React.Component{
     super(props);
 
     this.state = {
-      date: new Date()
+      title: "",
+      body: "",
+      link: "",
+      salary: "",
+      location: ""
     }
   }
 
@@ -30,6 +34,7 @@ export default class InputJobPost extends React.Component{
             placeholder="Title"
             onChange={this.handleChange('date')}
             margin="normal"
+            name="title"
           />
           <TextField
             id="body"
@@ -38,30 +43,42 @@ export default class InputJobPost extends React.Component{
             multiline="true"
             onChange={this.handleChange('date')}
             margin="normal"
+            name="body"
           />
           <TextField
-            id="time"
-            label="Alarm clock"
-            type="time"
-            defaultValue="07:30"
+            id="link"
+            label="With placeholder multiline"
+            placeholder="Link"
+            onChange={this.handleChange('date')}
+            margin="normal"
+            name="link"
           />
           <TextField
-            id="date"
-            label="Birthday"
-            type="date"
-            defaultValue={this.state.date}
+            id="salary"
+            label="With placeholder multiline"
+            placeholder="Salary"
+            onChange={this.handleChange('date')}
+            margin="normal"
+            name="salary"
           />
-        </div>
-        <div style={floatButton} >
-          <FlatButton
-            label="Submit"
-            primary={true}
-            keyboardFocused={true}
-            // onClick={this.handleClose}
+          <TextField
+            id="location"
+            label="With placeholder multiline"
+            placeholder="Location"
+            onChange={this.handleChange('date')}
+            margin="normal"
+            name="location"
           />
-        </div>
       </div>
+      <div style={floatButton} >
+        <FlatButton
+          label="Submit"
+          primary={true}
+          keyboardFocused={true}
+          // onClick={this.handleClose}
+        />
+      </div>
+    </div>
     )
   }
 }
-

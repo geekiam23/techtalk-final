@@ -8,7 +8,10 @@ export default class InputMeetingPost extends React.Component{
     super(props);
 
     this.state = {
-      date: new Date()
+      date: new Date(),
+      title: "",
+      body: "",
+      time: ""
     }
   }
 

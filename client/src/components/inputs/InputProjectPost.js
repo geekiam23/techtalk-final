@@ -8,7 +8,10 @@ export default class InputProjectPost extends React.Component{
     super(props);
 
     this.state = {
-      date: new Date()
+      title: "",
+      body: "",
+      link: "",
+      repo: ""
     }
   }
 
@@ -30,6 +33,7 @@ export default class InputProjectPost extends React.Component{
             placeholder="Title"
             onChange={this.handleChange('date')}
             margin="normal"
+            name="title"
           />
           <TextField
             id="body"
@@ -38,18 +42,23 @@ export default class InputProjectPost extends React.Component{
             multiline="true"
             onChange={this.handleChange('date')}
             margin="normal"
+            name="body"
           />
           <TextField
-            id="time"
-            label="Alarm clock"
-            type="time"
-            defaultValue="07:30"
+            id="link"
+            label="With placeholder multiline"
+            placeholder="Demo Link"
+            onChange={this.handleChange('date')}
+            margin="normal"
+            name="link"
           />
           <TextField
-            id="date"
-            label="Birthday"
-            type="date"
-            defaultValue={this.state.date}
+            id="repo"
+            label="With placeholder multiline"
+            placeholder="Repo Link"
+            onChange={this.handleChange('date')}
+            margin="normal"
+            name="repo"
           />
         </div>
         <div style={floatButton} >
@@ -64,4 +73,3 @@ export default class InputProjectPost extends React.Component{
     )
   }
 }
-

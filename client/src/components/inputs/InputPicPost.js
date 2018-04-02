@@ -6,13 +6,13 @@ import FlatButton from 'material-ui/FlatButton';
 
 
 export default class InputPicPost extends React.Component{
-  constructor(props){
-    super(props);
+  // constructor(props){
+    // super(props);
 
-    this.state = {
-      body: this.props.body
-    }
-  }
+    // this.state = {
+      // body: this.props.body
+    // }
+  // }
 
   render(){
 
