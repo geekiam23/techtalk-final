@@ -28,6 +28,10 @@ gem 'omniauth-linkedin-oauth2', '~> 0.2.5'
 gem 'omniauth-github', '~> 1.0.1'
 gem 'omniauth-facebook', '~> 1.4.0'
 gem 'omniauth-google-oauth2', '~> 0.2.2'
+gem 'active_model_serializers', '~> 0.8.4'
+# gem 'fast_jsonapi'
+gem 'rack-cors', :require => 'rack/cors'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri

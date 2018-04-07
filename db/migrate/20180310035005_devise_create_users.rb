@@ -78,12 +78,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       ## User Info
       t.string :name
-      t.string :nickname
-      t.string :image
+      # t.string :nickname
+      # t.string :image
       t.string :email
 
       ## Tokens
-      t.json :tokens
+      t.string :tokens
 
       t.timestamps
     end
