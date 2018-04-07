@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
 
-  scope '/api' do
-    resources :posts
-    resources :dashboard
+  # scope '/api' do
+  # resources :posts
+  # resources :dashboard
+  # mount_devise_token_auth_for 'User', at: 'auth'
+  # end
+
+  namespace :api do
     mount_devise_token_auth_for 'User', at: 'auth'
+    resources :users do
+      resources :posts
+    end
+    # resources :posts
+    # resources :users
   end
+
 
   get 'followers/index'
 
@@ -19,12 +29,7 @@ Rails.application.routes.draw do
 
   get 'search', to: 'posts#search'
 
-  # get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
-  # get 'logout', to: 'sessions#destroy', as: 'logout'
-  # get 'auth/:provider/callback', to: 'sessions#create'
-  # get 'auth/failure', to: redirect('/')
-  # get 'home', to: 'home#show'
-  # get 'me', to: 'me#show', as: 'me'
+  devise_for :users
 
   root to: "dashboard#show"
 
